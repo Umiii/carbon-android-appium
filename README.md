@@ -9,7 +9,7 @@ the name given in step 2 below.
 
 - Clone Project to your Local System
 - Change emulator variable in base java file to the name of your emulator
-- Install appium using npm command `npm install -g appium`
+- Install appium from terminal using npm command `npm install -g appium`
 - Install Maven (Project uses 3.6.3) (Skip if you have recent version of maven installed)
 - Add testng as a dependency to project (test ng jar file is included)
 - Run Emulator and Appium Server
