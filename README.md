@@ -4,7 +4,8 @@ appium automation for Carbon Test
 ## Installation
 The project code assumes a Virtual Device is used, Virtual Device can be installed using
 AVD Manager in Android Studio. Any Emulator targeting Android 10.0 and above would
-suffice.
+suffice. The name of your Virtual Device (Emulator name) should correspond with
+the name given in step 2 below.
 
 - Clone Project to your Local System
 - Change emulator variable in base java file to the name of your emulator
