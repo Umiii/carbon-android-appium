@@ -1,4 +1,4 @@
 -------------------------------------------------------------------------------
-Test set: org.carbon.Verify_LoginTest
+Test set: org.carbon.AuthTest
 -------------------------------------------------------------------------------
-Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 29.485 s - in org.carbon.Verify_LoginTest
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 43.284 s - in org.carbon.AuthTest
