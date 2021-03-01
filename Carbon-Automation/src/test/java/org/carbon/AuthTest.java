@@ -7,12 +7,15 @@ import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.android.AndroidElement;
 import io.appium.java_client.touch.TapOptions;
 import io.appium.java_client.touch.offset.ElementOption;
+import org.openqa.selenium.interactions.Actions;
 import org.testng.annotations.Test;
 
 import java.net.MalformedURLException;
 import java.util.concurrent.TimeUnit;
 
 public class AuthTest extends base {
+
+
 
     @Test
     public void Successful_Login() throws MalformedURLException , InterruptedException {
@@ -39,7 +42,11 @@ public class AuthTest extends base {
         t.tap(TapOptions.tapOptions().withElement(ElementOption.element(signIn))).perform();
         maskedText = driver.findElementById("com.lenddo.mobile.paylater.staging:id/otpMaskedText");
         t.tap(TapOptions.tapOptions().withElement(ElementOption.element(maskedText))).perform();
-        mask = driver.findElementsByClassName()
+        if (driver.isKeyboardShown())
+        {
+            Actions a = new Actions(driver);
+            a.sendKeys("123456");
+        }
 
 
 
