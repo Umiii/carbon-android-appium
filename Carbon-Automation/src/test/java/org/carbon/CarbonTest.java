@@ -77,9 +77,10 @@ public class CarbonTest extends base {
 
         }
 
-        driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+        wait.until(ExpectedConditions.presenceOfElementLocated(By.id("com.lenddo.mobile.paylater.staging.carboncards:id/btnNotRightNow")));
         closeAd = driver.findElementById("com.lenddo.mobile.paylater.staging.carboncards:id/btnNotRightNow");
-        t.tap(TapOptions.tapOptions().withElement(ElementOption.element(closeAd))).perform();
+        closeAd.click();
+        //t.tap(TapOptions.tapOptions().withElement(ElementOption.element(closeAd))).perform();
         Boolean isElementPresent = driver.findElementsById("com.lenddo.mobile.paylater.staging:id/title_up").size() != 0;
         Assert.assertTrue(isElementPresent);
 

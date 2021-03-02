@@ -93,7 +93,7 @@
               <div class="suite-section-content">
                 <ul>
                   <li>
-                    <span class="method-stats">1 method,   1 passed</span>
+                    <span class="method-stats">2 methods,   2 passed</span>
                   </li>
                   <li>
                     <span class="method-list-title passed">Passed methods</span>
@@ -104,7 +104,12 @@
                     <div class="method-list-content passed suite-Surefire_suite">
                       <span>
                         <img width="3%" src="passed.png"/>
-                        <a href="#" class="method navigator-link" panel-name="suite-Surefire_suite" title="org.carbon.AuthTest" hash-for-method="Successful_Login">Successful_Login</a> <!-- method navigator-link -->
+                        <a href="#" class="method navigator-link" panel-name="suite-Surefire_suite" title="org.carbon.CarbonTest" hash-for-method="Successful_Login">Successful_Login</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="passed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-Surefire_suite" title="org.carbon.CarbonTest" hash-for-method="Validate_AirtimeRecharge">Validate_AirtimeRecharge</a> <!-- method navigator-link -->
                       </span>
                       <br/>
                     </div> <!-- method-list-content passed suite-Surefire_suite -->
@@ -122,7 +127,7 @@
           <div class="suite-Surefire_suite-class-passed">
             <div class="main-panel-header rounded-window-top">
               <img src="passed.png"/>
-              <span class="class-name">org.carbon.AuthTest</span>
+              <span class="class-name">org.carbon.CarbonTest</span>
             </div> <!-- main-panel-header rounded-window-top -->
             <div class="main-panel-content rounded-window-bottom">
               <div class="method">
@@ -130,6 +135,13 @@
                   <a name="Successful_Login">
                   </a> <!-- Successful_Login -->
                   <span class="method-name">Successful_Login</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="Validate_AirtimeRecharge">
+                  </a> <!-- Validate_AirtimeRecharge -->
+                  <span class="method-name">Validate_AirtimeRecharge</span>
                 </div> <!-- method-content -->
               </div> <!-- method -->
             </div> <!-- main-panel-content rounded-window-bottom -->
@@ -145,7 +157,7 @@
 &lt;suite thread-count=&quot;1&quot; verbose=&quot;0&quot; name=&quot;Surefire suite&quot;&gt;
   &lt;test thread-count=&quot;1&quot; verbose=&quot;0&quot; name=&quot;Surefire test&quot;&gt;
     &lt;classes&gt;
-      &lt;class name=&quot;org.carbon.AuthTest&quot;/&gt;
+      &lt;class name=&quot;org.carbon.CarbonTest&quot;/&gt;
     &lt;/classes&gt;
   &lt;/test&gt; &lt;!-- Surefire test --&gt;
 &lt;/suite&gt; &lt;!-- Surefire suite --&gt;
@@ -185,11 +197,15 @@ data.addColumn('number', 'Number');
 data.addColumn('string', 'Method');
 data.addColumn('string', 'Class');
 data.addColumn('number', 'Time (ms)');
-data.addRows(1);
+data.addRows(2);
 data.setCell(0, 0, 0)
 data.setCell(0, 1, 'Successful_Login')
-data.setCell(0, 2, 'org.carbon.AuthTest')
-data.setCell(0, 3, 62033);
+data.setCell(0, 2, 'org.carbon.CarbonTest')
+data.setCell(0, 3, 65078);
+data.setCell(1, 0, 1)
+data.setCell(1, 1, 'Validate_AirtimeRecharge')
+data.setCell(1, 2, 'org.carbon.CarbonTest')
+data.setCell(1, 3, 0);
 window.suiteTableData['Surefire_suite']= { tableData: data, tableDiv: 'times-div-Surefire_suite'}
 return data;
 }
@@ -220,10 +236,14 @@ return data;
           </div> <!-- main-panel-header rounded-window-top -->
           <div class="main-panel-content rounded-window-bottom">
             <div class="chronological-class">
-              <div class="chronological-class-name">org.carbon.AuthTest</div> <!-- chronological-class-name -->
+              <div class="chronological-class-name">org.carbon.CarbonTest</div> <!-- chronological-class-name -->
               <div class="test-method">
                 <span class="method-name">Successful_Login</span>
                 <span class="method-start">0 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">Validate_AirtimeRecharge</span>
+                <span class="method-start">65080 ms</span>
               </div> <!-- test-method -->
           </div> <!-- main-panel-content rounded-window-bottom -->
         </div> <!-- panel -->
