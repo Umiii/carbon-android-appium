@@ -18,7 +18,7 @@ import org.testng.annotations.Test;
 import java.net.MalformedURLException;
 import java.util.concurrent.TimeUnit;
 
-public class AuthTest extends base {
+public class CarbonTest extends base {
 
 
 
