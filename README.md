@@ -18,3 +18,8 @@ the name given in step 2 below.
 ## Execution
 Run command `mvn test` from project folder path. This should output test results in command line
 if maven is intstalled and testng added as dependency as mentioned above
+
+*NOTE ON INSTALLATION*
+Appium and Surefire jar files have been added as dependencies in the pom.xml, however if there
+are any errors related to these while running test,manually add these jar files as
+dependencies of project.
