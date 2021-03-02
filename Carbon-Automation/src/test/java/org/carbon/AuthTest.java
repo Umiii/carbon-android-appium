@@ -1,13 +1,18 @@
 package org.carbon;
 
 
-import io.appium.java_client.MobileElement;
 import io.appium.java_client.TouchAction;
 import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.android.AndroidElement;
+import io.appium.java_client.android.nativekey.AndroidKey;
+import io.appium.java_client.android.nativekey.KeyEvent;
 import io.appium.java_client.touch.TapOptions;
 import io.appium.java_client.touch.offset.ElementOption;
-import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
+import org.testng.Assert;
 import org.testng.annotations.Test;
 
 import java.net.MalformedURLException;
@@ -21,33 +26,62 @@ public class AuthTest extends base {
     public void Successful_Login() throws MalformedURLException , InterruptedException {
         AndroidDriver<AndroidElement> driver = Capabilities("carbon_ng.apk");
         driver.manage().timeouts().implicitlyWait(60, TimeUnit.SECONDS);
-        MobileElement el,allowTxt, loginBtn, phoneNo, pin, signIn, maskedText,
-        mask;
-        Thread thread = null;
+        WebElement loginBtn = null,el,allowTxt,phoneNo,pin,signIn,maskedText = null,closeAd,sidebarIcon;
+        Thread thread = null; TouchAction t = new TouchAction(driver);
         el = driver.findElementByXPath("//android.widget.Button[@text='Skip']");
-        TouchAction t = new TouchAction(driver);
         t.tap(TapOptions.tapOptions().withElement(ElementOption.element(el))).perform();
         allowTxt = driver.findElementByXPath("//android.widget.Button[@text='Allow']");
         t.tap(TapOptions.tapOptions().withElement(ElementOption.element(allowTxt))).perform();
-        loginBtn = driver.findElementByXPath("//android.widget.Button[@text='Sign In']");
-        driver.manage().timeouts().implicitlyWait(45, TimeUnit.SECONDS);
+        WebDriverWait wait = new WebDriverWait(driver, 20);
+
+        // Wait for Sign In Button to Load, temporary solution till switch to page object
+        wait.until(ExpectedConditions.presenceOfElementLocated(By.id("com.lenddo.mobile.paylater.staging:id/user_type_existing")));
+
+        // Tap Login
+        loginBtn = driver.findElementById("com.lenddo.mobile.paylater.staging:id/user_type_existing");
+        //driver.manage().timeouts().implicitlyWait(45, TimeUnit.SECONDS);
         t.tap(TapOptions.tapOptions().withElement(ElementOption.element(loginBtn))).perform();
+
+        // Enter Phone Number
         driver.manage().timeouts().implicitlyWait(45, TimeUnit.SECONDS);
         phoneNo = driver.findElementByXPath("//android.widget.EditText[@text='Phone number']");
         phoneNo.sendKeys("089 9000 1100");
+
+        // Enter PIN
         pin = driver.findElementByXPath("//android.widget.EditText[@text='Enter PIN']");
         pin.sendKeys("1234");
-        thread.sleep(5000);
+        driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+
+        // Tap Sign In
         signIn = driver.findElementById("com.lenddo.mobile.paylater.staging:id/sign_in_next");
         t.tap(TapOptions.tapOptions().withElement(ElementOption.element(signIn))).perform();
-        maskedText = driver.findElementById("com.lenddo.mobile.paylater.staging:id/otpMaskedText");
-        t.tap(TapOptions.tapOptions().withElement(ElementOption.element(maskedText))).perform();
-        if (driver.isKeyboardShown())
-        {
-            Actions a = new Actions(driver);
-            a.sendKeys("123456");
+
+        // Check to see if masked Text exists, tap on it if it does
+        if(driver.findElementsById("com.lenddo.mobile.paylater.staging:id/otpMaskedText").size() !=0) {
+            maskedText = driver.findElementById("com.lenddo.mobile.paylater.staging:id/otpMaskedText");
+            t.tap(TapOptions.tapOptions().withElement(ElementOption.element(maskedText))).perform();
+            driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
         }
 
+
+        // Enter 6 digit verification code
+        if (driver.isKeyboardShown())
+        {
+            System.out.println("keyboard shows");
+            driver.pressKey(new KeyEvent(AndroidKey.DIGIT_1));
+            driver.pressKey(new KeyEvent(AndroidKey.DIGIT_2));
+            driver.pressKey(new KeyEvent(AndroidKey.DIGIT_3));
+            driver.pressKey(new KeyEvent(AndroidKey.DIGIT_4));
+            driver.pressKey(new KeyEvent(AndroidKey.DIGIT_5));
+            driver.pressKey(new KeyEvent(AndroidKey.DIGIT_6));
+
+        }
+
+        driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+        closeAd = driver.findElementById("com.lenddo.mobile.paylater.staging.carboncards:id/btnNotRightNow");
+        t.tap(TapOptions.tapOptions().withElement(ElementOption.element(closeAd))).perform();
+        Boolean isElementPresent = driver.findElementsById("com.lenddo.mobile.paylater.staging:id/title_up").size() != 0;
+        Assert.assertTrue(isElementPresent);
 
 
     }
