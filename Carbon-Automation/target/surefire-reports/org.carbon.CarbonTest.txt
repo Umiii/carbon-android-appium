@@ -1,4 +1,16 @@
 -------------------------------------------------------------------------------
 Test set: org.carbon.CarbonTest
 -------------------------------------------------------------------------------
-Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 65.679 s - in org.carbon.CarbonTest
+Tests run: 2, Failures: 1, Errors: 0, Skipped: 0, Time elapsed: 101.895 s <<< FAILURE! - in org.carbon.CarbonTest
+org.carbon.CarbonTest.Successful_Login  Time elapsed: 101.276 s  <<< FAILURE!
+org.openqa.selenium.NoSuchElementException: 
+An element could not be located on the page using the given search parameters.
+For documentation on this error, please visit: https://www.seleniumhq.org/exceptions/no_such_element.html
+Build info: version: '3.141.59', revision: 'e82be7d358', time: '2018-11-14T08:17:03'
+System info: host: 'DESKTOP-G3QV6VG', ip: '192.168.8.101', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '1.8.0_211'
+Driver info: io.appium.java_client.android.AndroidDriver
+Capabilities {app: C:\Users\umyik\personal-pro..., appPackage: com.lenddo.mobile.paylater...., automationName: uiautomator2, databaseEnabled: false, desired: {app: C:\Users\umyik\personal-pro..., automationName: uiautomator2, deviceName: umi-emulator, platformName: android}, deviceApiLevel: 29, deviceManufacturer: Google, deviceModel: Android SDK built for x86_64, deviceName: emulator-5554, deviceScreenDensity: 560, deviceScreenSize: 1440x3040, deviceUDID: emulator-5554, javascriptEnabled: true, locationContextEnabled: false, networkConnectionEnabled: true, pixelRatio: 3.5, platform: LINUX, platformName: Android, platformVersion: 10, statBarHeight: 172, takesScreenshot: true, viewportRect: {height: 2529, left: 0, top: 172, width: 1440}, warnings: {}, webStorageEnabled: false}
+Session ID: 625129d9-56c8-4583-82c8-0a3b11c84b78
+*** Element info: {Using=-android uiautomator, value=new UiScrollable(new UiSelector()).scrollIntoView(new UiSelector().resourceIdMatches("com.lenddo.mobile.paylater.staging:id/nav_text_logout"))}
+	at org.carbon.CarbonTest.Successful_Login(CarbonTest.java:95)
+

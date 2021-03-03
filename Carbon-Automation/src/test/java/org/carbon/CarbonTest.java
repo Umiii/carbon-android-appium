@@ -1,6 +1,7 @@
 package org.carbon;
 
 
+import io.appium.java_client.MobileBy;
 import io.appium.java_client.TouchAction;
 import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.android.AndroidElement;
@@ -26,8 +27,11 @@ public class CarbonTest extends base {
     public void Successful_Login() throws MalformedURLException , InterruptedException {
         AndroidDriver<AndroidElement> driver = Capabilities("carbon_ng.apk");
         driver.manage().timeouts().implicitlyWait(60, TimeUnit.SECONDS);
-        WebElement loginBtn = null,el,allowTxt,phoneNo,pin,signIn,maskedText = null,closeAd,sidebarIcon;
+
+        // Declare Web Elements & Touch Action object
+        WebElement loginBtn = null,el,allowTxt,phoneNo,pin,signIn,maskedText = null,closeAd,sidebarIcon, logoutBtn;
         Thread thread = null; TouchAction t = new TouchAction(driver);
+
         el = driver.findElementByXPath("//android.widget.Button[@text='Skip']");
         t.tap(TapOptions.tapOptions().withElement(ElementOption.element(el))).perform();
         allowTxt = driver.findElementByXPath("//android.widget.Button[@text='Allow']");
@@ -83,6 +87,13 @@ public class CarbonTest extends base {
         //t.tap(TapOptions.tapOptions().withElement(ElementOption.element(closeAd))).perform();
         Boolean isElementPresent = driver.findElementsById("com.lenddo.mobile.paylater.staging:id/title_up").size() != 0;
         Assert.assertTrue(isElementPresent);
+        sidebarIcon = driver.findElementById("com.lenddo.mobile.paylater.staging:id/title_up");
+        t.tap(TapOptions.tapOptions().withElement(ElementOption.element(sidebarIcon))).perform();
+
+        //wait.until(ExpectedConditions.presenceOfElementLocated(By.id("com.lenddo.mobile.paylater.staging:id/navigation_menu_logout")));
+        //driver.findElementByAndroidUIAutomator("new UiScrollable(new UiSelector()).scrollIntoView(text(\"Log Out\"))");
+        logoutBtn = driver.findElement(MobileBy.AndroidUIAutomator("new UiScrollable(new UiSelector()).scrollIntoView(new UiSelector().resourceIdMatches(\"com.lenddo.mobile.paylater.staging:id/nav_text_logout\"))"));
+        //logoutBtn.click();
 
 
     }
