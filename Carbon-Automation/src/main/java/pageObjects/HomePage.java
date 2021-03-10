@@ -1,4 +1,4 @@
 package pageObjects;
 
-public class homePage {
+public class HomePage {
 }

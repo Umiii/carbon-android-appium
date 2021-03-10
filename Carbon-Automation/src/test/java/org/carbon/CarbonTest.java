@@ -18,7 +18,7 @@ import org.testng.annotations.Test;
 import java.net.MalformedURLException;
 import java.util.concurrent.TimeUnit;
 
-public class CarbonTest extends base {
+public class CarbonTest extends Base {
 
 
 
@@ -31,6 +31,7 @@ public class CarbonTest extends base {
         WebElement loginBtn = null,el,allowTxt,phoneNo,pin,signIn,maskedText = null,closeAd,sidebarIcon, logoutBtn;
         Thread thread = null; TouchAction t = new TouchAction(driver);
 
+        
         el = driver.findElementByXPath("//android.widget.Button[@text='Skip']");
         t.tap(TapOptions.tapOptions().withElement(ElementOption.element(el))).perform();
         allowTxt = driver.findElementByXPath("//android.widget.Button[@text='Allow']");
