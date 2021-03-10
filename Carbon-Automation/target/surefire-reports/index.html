@@ -149,9 +149,9 @@ For documentation on this error, please visit: https://www.seleniumhq.org/except
 Build info: version: &apos;3.141.59&apos;, revision: &apos;e82be7d358&apos;, time: &apos;2018-11-14T08:17:03&apos;
 System info: host: &apos;DESKTOP-G3QV6VG&apos;, ip: &apos;192.168.8.101&apos;, os.name: &apos;Windows 10&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;1.8.0_211&apos;
 Driver info: io.appium.java_client.android.AndroidDriver
-Capabilities {app: C:\Users\umyik\personal-pro..., appPackage: com.lenddo.mobile.paylater...., automationName: uiautomator2, databaseEnabled: false, desired: {app: C:\Users\umyik\personal-pro..., automationName: uiautomator2, deviceName: umi-emulator, platformName: android}, deviceApiLevel: 29, deviceManufacturer: Google, deviceModel: Android SDK built for x86_64, deviceName: emulator-5554, deviceScreenDensity: 560, deviceScreenSize: 1440x3040, deviceUDID: emulator-5554, javascriptEnabled: true, locationContextEnabled: false, networkConnectionEnabled: true, pixelRatio: 3.5, platform: LINUX, platformName: Android, platformVersion: 10, statBarHeight: 172, takesScreenshot: true, viewportRect: {height: 2529, left: 0, top: 172, width: 1440}, warnings: {}, webStorageEnabled: false}
-Session ID: 625129d9-56c8-4583-82c8-0a3b11c84b78
-*** Element info: {Using=-android uiautomator, value=new UiScrollable(new UiSelector()).scrollIntoView(new UiSelector().resourceIdMatches(&quot;com.lenddo.mobile.paylater.staging:id/nav_text_logout&quot;))}
+Capabilities {app: C:\Users\umyik\personal-pro..., appPackage: com.lenddo.mobile.paylater...., automationName: uiautomator2, databaseEnabled: false, desired: {app: C:\Users\umyik\personal-pro..., automationName: uiautomator2, deviceName: umi-emulator2, platformName: android}, deviceApiLevel: 30, deviceManufacturer: Google, deviceModel: sdk_gphone_x86_64_arm64, deviceName: emulator-5554, deviceScreenDensity: 560, deviceScreenSize: 1440x3040, deviceUDID: emulator-5554, javascriptEnabled: true, locationContextEnabled: false, networkConnectionEnabled: true, pixelRatio: 3.5, platform: LINUX, platformName: Android, platformVersion: 11, statBarHeight: 172, takesScreenshot: true, viewportRect: {height: 2529, left: 0, top: 172, width: 1440}, warnings: {}, webStorageEnabled: false}
+Session ID: 0c20e1d3-8bf1-498b-ba13-eec8950d1f92
+*** Element info: {Using=-android uiautomator, value=new UiScrollable(new UiSelector().scrollable(true).instance(0)).scrollIntoView(new UiSelector().textMatches(&quot; + Log Out + &quot;).instance(0));}
 	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.createException(W3CHttpResponseCodec.java:187)
 	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:122)
 	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:49)
@@ -171,7 +171,7 @@ Session ID: 625129d9-56c8-4583-82c8-0a3b11c84b78
 	at io.appium.java_client.DefaultGenericMobileDriver.findElement(DefaultGenericMobileDriver.java:57)
 	at io.appium.java_client.AppiumDriver.findElement(AppiumDriver.java:1)
 	at io.appium.java_client.android.AndroidDriver.findElement(AndroidDriver.java:1)
-	at org.carbon.CarbonTest.Successful_Login(CarbonTest.java:95)
+	at org.carbon.CarbonTest.Successful_Login(CarbonTest.java:97)
 	at java.util.ArrayList.forEach(ArrayList.java:1257)
 ... Removed 36 stack frames
 </div> <!-- stack-trace -->
@@ -249,7 +249,7 @@ data.addRows(2);
 data.setCell(0, 0, 0)
 data.setCell(0, 1, 'Successful_Login')
 data.setCell(0, 2, 'org.carbon.CarbonTest')
-data.setCell(0, 3, 101260);
+data.setCell(0, 3, 121090);
 data.setCell(1, 0, 1)
 data.setCell(1, 1, 'Validate_AirtimeRecharge')
 data.setCell(1, 2, 'org.carbon.CarbonTest')
@@ -258,7 +258,7 @@ window.suiteTableData['Surefire_suite']= { tableData: data, tableDiv: 'times-div
 return data;
 }
               </script>
-              <span class="suite-total-time">Total running time: 1 minutes</span>
+              <span class="suite-total-time">Total running time: 2 minutes</span>
               <div id="times-div-Surefire_suite">
               </div> <!-- times-div-Surefire_suite -->
             </div> <!-- times-div -->
@@ -293,7 +293,7 @@ return data;
               </div> <!-- test-method -->
               <div class="test-method">
                 <span class="method-name">Validate_AirtimeRecharge</span>
-                <span class="method-start">101271 ms</span>
+                <span class="method-start">121105 ms</span>
               </div> <!-- test-method -->
           </div> <!-- main-panel-content rounded-window-bottom -->
         </div> <!-- panel -->

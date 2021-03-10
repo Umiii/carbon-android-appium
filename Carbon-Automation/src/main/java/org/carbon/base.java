@@ -11,7 +11,7 @@ import java.net.URL;
 
 public class base {
 
-    private static final String EMULATOR_NAME = "umi-emulator";
+    private static final String EMULATOR_NAME = "umi-emulator2";
 
     public static AndroidDriver<AndroidElement> Capabilities(String apk) throws MalformedURLException {
         File appDir = new File("src");
