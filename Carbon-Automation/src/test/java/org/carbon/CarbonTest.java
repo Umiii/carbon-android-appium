@@ -8,62 +8,56 @@ import io.appium.java_client.android.nativekey.AndroidKey;
 import io.appium.java_client.android.nativekey.KeyEvent;
 import io.appium.java_client.touch.TapOptions;
 import io.appium.java_client.touch.offset.ElementOption;
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 import org.testng.annotations.Test;
+import pageObjects.HomePage;
+import pageObjects.LoginPage;
 
 import java.net.MalformedURLException;
 import java.util.concurrent.TimeUnit;
 
 public class CarbonTest extends Base {
 
+    AndroidDriver<AndroidElement> driver = Capabilities("carbon_ng.apk");
+    LoginPage loginPage = new LoginPage(driver);
+    HomePage homePage = new HomePage(driver);
+    WebDriverWait wait = new WebDriverWait(driver, 60);
+    TouchAction t = new TouchAction(driver);
+
+    public CarbonTest() throws MalformedURLException {
+    }
 
 
     @Test
     public void Successful_Login() throws MalformedURLException , InterruptedException {
-        AndroidDriver<AndroidElement> driver = Capabilities("carbon_ng.apk");
+        driver.manage().timeouts().implicitlyWait(60, TimeUnit.SECONDS);
+        t.tap(TapOptions.tapOptions().withElement(ElementOption.element(loginPage.skip))).perform();
+        t.tap(TapOptions.tapOptions().withElement(ElementOption.element(loginPage.allowTxt))).perform();
         driver.manage().timeouts().implicitlyWait(60, TimeUnit.SECONDS);
 
-        // Declare Web Elements & Touch Action object
-        WebElement loginBtn = null,el,allowTxt,phoneNo,pin,signIn,maskedText = null,closeAd,sidebarIcon, logoutBtn;
-        Thread thread = null; TouchAction t = new TouchAction(driver);
-
-        
-        el = driver.findElementByXPath("//android.widget.Button[@text='Skip']");
-        t.tap(TapOptions.tapOptions().withElement(ElementOption.element(el))).perform();
-        allowTxt = driver.findElementByXPath("//android.widget.Button[@text='Allow']");
-        t.tap(TapOptions.tapOptions().withElement(ElementOption.element(allowTxt))).perform();
-        WebDriverWait wait = new WebDriverWait(driver, 60);
-
-        // Wait for Sign In Button to Load, temporary solution till switch to page object
-        wait.until(ExpectedConditions.presenceOfElementLocated(By.id("com.lenddo.mobile.paylater.staging:id/user_type_existing")));
+        // Wait for Sign In Button to Load
+        //wait.until(ExpectedConditions.elementToBeClickable(loginPage.loginBtn));
+        loginPage.loginBtn.click();
 
         // Tap Login
-        loginBtn = driver.findElementById("com.lenddo.mobile.paylater.staging:id/user_type_existing");
-        //driver.manage().timeouts().implicitlyWait(45, TimeUnit.SECONDS);
-        t.tap(TapOptions.tapOptions().withElement(ElementOption.element(loginBtn))).perform();
+        //t.tap(TapOptions.tapOptions().withElement(ElementOption.element(loginPage.loginBtn))).perform();
 
         // Enter Phone Number
         driver.manage().timeouts().implicitlyWait(45, TimeUnit.SECONDS);
-        phoneNo = driver.findElementByXPath("//android.widget.EditText[@text='Phone number']");
-        phoneNo.sendKeys("089 9000 1100");
+        loginPage.phoneNo.sendKeys("089 9000 1100");
 
         // Enter PIN
-        pin = driver.findElementByXPath("//android.widget.EditText[@text='Enter PIN']");
-        pin.sendKeys("1234");
+        loginPage.pin.sendKeys("1234");
         driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 
         // Tap Sign In
-        signIn = driver.findElementById("com.lenddo.mobile.paylater.staging:id/sign_in_next");
-        t.tap(TapOptions.tapOptions().withElement(ElementOption.element(signIn))).perform();
+        t.tap(TapOptions.tapOptions().withElement(ElementOption.element(loginPage.signInBtn))).perform();
 
         // Check to see if masked Text exists, tap on it if it does
-        if(driver.findElementsById("com.lenddo.mobile.paylater.staging:id/otpMaskedText").size() !=0) {
-            maskedText = driver.findElementById("com.lenddo.mobile.paylater.staging:id/otpMaskedText");
-            t.tap(TapOptions.tapOptions().withElement(ElementOption.element(maskedText))).perform();
+        if(loginPage.maskedTxtPresent.size() !=0) {
+            t.tap(TapOptions.tapOptions().withElement(ElementOption.element(loginPage.maskedText))).perform();
             driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
         }
 
@@ -82,16 +76,16 @@ public class CarbonTest extends Base {
         }
 
         //Wait for CloseAd button & Click Close Ad button
-        wait.until(ExpectedConditions.presenceOfElementLocated(By.id("com.lenddo.mobile.paylater.staging.carboncards:id/btnNotRightNow")));
-        closeAd = driver.findElementById("com.lenddo.mobile.paylater.staging.carboncards:id/btnNotRightNow");
-        closeAd.click();
-        //t.tap(TapOptions.tapOptions().withElement(ElementOption.element(closeAd))).perform();
+        wait.until(ExpectedConditions.visibilityOf(homePage.closeAd));
+        homePage.closeAd.click();
 
         //Check if Sidebar icon is present & tap on it
-        Boolean isElementPresent = driver.findElementsById("com.lenddo.mobile.paylater.staging:id/title_up").size() != 0;
+        Boolean isElementPresent = homePage.sidebarIconPresent.size() != 0;
         Assert.assertTrue(isElementPresent);
-        sidebarIcon = driver.findElementById("com.lenddo.mobile.paylater.staging:id/title_up");
-        t.tap(TapOptions.tapOptions().withElement(ElementOption.element(sidebarIcon))).perform();
+
+
+//        sidebarIcon = driver.findElementById("com.lenddo.mobile.paylater.staging:id/title_up");
+//        t.tap(TapOptions.tapOptions().withElement(ElementOption.element(sidebarIcon))).perform();
 
         //Scroll to Logout Element
         //driver.findElement(MobileBy.AndroidUIAutomator("new UiScrollable(new UiSelector().scrollable(true).instance(0)).scrollIntoView(new UiSelector().textMatches(\" + Log Out + \").instance(0));"));
@@ -101,6 +95,24 @@ public class CarbonTest extends Base {
 
     @Test
     public void Validate_AirtimeRecharge() throws MalformedURLException{
+    // Tap buy airtimeIcon
+    homePage.buyAirtimeIcon.click();
+
+    wait.until(ExpectedConditions.visibilityOf(homePage.airtimePhoneNo));
+
+    homePage.airtimePhoneNo.click();
+    homePage.airtimePhoneNo.sendKeys("08093843293");
+
+    wait.until(ExpectedConditions.visibilityOf(homePage.airtimeAmt));
+
+    homePage.airtimeAmt.click();
+    homePage.airtimeAmt.sendKeys("500");
+
+    wait.until(ExpectedConditions.visibilityOf(homePage.network));
+    homePage.network.click();
+
+    //wait.until(ExpectedConditions.visibilityOf(homePage.nextBtn));
+    //homePage.nextBtn.click();
 
     }
 }

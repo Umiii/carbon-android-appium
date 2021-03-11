@@ -1,16 +1,4 @@
 -------------------------------------------------------------------------------
 Test set: org.carbon.CarbonTest
 -------------------------------------------------------------------------------
-Tests run: 2, Failures: 1, Errors: 0, Skipped: 0, Time elapsed: 121.871 s <<< FAILURE! - in org.carbon.CarbonTest
-org.carbon.CarbonTest.Successful_Login  Time elapsed: 121.119 s  <<< FAILURE!
-org.openqa.selenium.NoSuchElementException: 
-An element could not be located on the page using the given search parameters.
-For documentation on this error, please visit: https://www.seleniumhq.org/exceptions/no_such_element.html
-Build info: version: '3.141.59', revision: 'e82be7d358', time: '2018-11-14T08:17:03'
-System info: host: 'DESKTOP-G3QV6VG', ip: '192.168.8.101', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '1.8.0_211'
-Driver info: io.appium.java_client.android.AndroidDriver
-Capabilities {app: C:\Users\umyik\personal-pro..., appPackage: com.lenddo.mobile.paylater...., automationName: uiautomator2, databaseEnabled: false, desired: {app: C:\Users\umyik\personal-pro..., automationName: uiautomator2, deviceName: umi-emulator2, platformName: android}, deviceApiLevel: 30, deviceManufacturer: Google, deviceModel: sdk_gphone_x86_64_arm64, deviceName: emulator-5554, deviceScreenDensity: 560, deviceScreenSize: 1440x3040, deviceUDID: emulator-5554, javascriptEnabled: true, locationContextEnabled: false, networkConnectionEnabled: true, pixelRatio: 3.5, platform: LINUX, platformName: Android, platformVersion: 11, statBarHeight: 172, takesScreenshot: true, viewportRect: {height: 2529, left: 0, top: 172, width: 1440}, warnings: {}, webStorageEnabled: false}
-Session ID: 0c20e1d3-8bf1-498b-ba13-eec8950d1f92
-*** Element info: {Using=-android uiautomator, value=new UiScrollable(new UiSelector().scrollable(true).instance(0)).scrollIntoView(new UiSelector().textMatches(" + Log Out + ").instance(0));}
-	at org.carbon.CarbonTest.Successful_Login(CarbonTest.java:97)
-
+Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 98.251 s - in org.carbon.CarbonTest
