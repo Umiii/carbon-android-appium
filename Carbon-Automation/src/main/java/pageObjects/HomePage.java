@@ -47,4 +47,8 @@ public class HomePage {
 
     @AndroidFindBy(id = "com.lenddo.mobile.paylater.staging:id/button_text_secure_pay")
     public WebElement securePayBtn;
+
+    @AndroidFindBy(xpath = "(//android.widget.ImageView)[1]")
+    public WebElement airtimePin;
+
 }

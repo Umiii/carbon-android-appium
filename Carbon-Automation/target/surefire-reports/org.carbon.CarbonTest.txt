@@ -1,4 +1,15 @@
 -------------------------------------------------------------------------------
 Test set: org.carbon.CarbonTest
 -------------------------------------------------------------------------------
-Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 137.71 s - in org.carbon.CarbonTest
+Tests run: 2, Failures: 1, Errors: 0, Skipped: 0, Time elapsed: 111.44 s <<< FAILURE! - in org.carbon.CarbonTest
+org.carbon.CarbonTest.Validate_AirtimeRecharge  Time elapsed: 25.721 s  <<< FAILURE!
+org.openqa.selenium.StaleElementReferenceException: 
+androidx.test.uiautomator.StaleObjectException
+For documentation on this error, please visit: https://www.seleniumhq.org/exceptions/stale_element_reference.html
+Build info: version: '3.141.59', revision: 'e82be7d358', time: '2018-11-14T08:17:03'
+System info: host: 'DESKTOP-G3QV6VG', ip: '192.168.8.100', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '1.8.0_211'
+Driver info: io.appium.java_client.android.AndroidDriver
+Capabilities {app: C:\Users\umyik\personal-pro..., appPackage: com.lenddo.mobile.paylater...., automationName: uiautomator2, databaseEnabled: false, desired: {app: C:\Users\umyik\personal-pro..., automationName: uiautomator2, deviceName: umi-emulator2, platformName: android}, deviceApiLevel: 29, deviceManufacturer: Google, deviceModel: Android SDK built for x86_64, deviceName: emulator-5554, deviceScreenDensity: 560, deviceScreenSize: 1440x3040, deviceUDID: emulator-5554, javascriptEnabled: true, locationContextEnabled: false, networkConnectionEnabled: true, pixelRatio: 3.5, platform: LINUX, platformName: Android, platformVersion: 10, statBarHeight: 172, takesScreenshot: true, viewportRect: {height: 2529, left: 0, top: 172, width: 1440}, warnings: {}, webStorageEnabled: false}
+Session ID: f0753581-d08b-41f5-8008-fb248fbe3c5c
+	at org.carbon.CarbonTest.Validate_AirtimeRecharge(CarbonTest.java:130)
+

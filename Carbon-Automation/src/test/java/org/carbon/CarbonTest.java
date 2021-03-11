@@ -38,7 +38,7 @@ public class CarbonTest extends Base {
         driver.manage().timeouts().implicitlyWait(60, TimeUnit.SECONDS);
 
         // Wait for Sign In Button to Load
-        //wait.until(ExpectedConditions.elementToBeClickable(loginPage.loginBtn));
+        wait.until(ExpectedConditions.elementToBeClickable(loginPage.loginBtn));
         loginPage.loginBtn.click();
 
         // Tap Login
@@ -65,7 +65,6 @@ public class CarbonTest extends Base {
         // Enter 6 digit verification code
         if (driver.isKeyboardShown())
         {
-            System.out.println("keyboard shows");
             driver.pressKey(new KeyEvent(AndroidKey.DIGIT_1));
             driver.pressKey(new KeyEvent(AndroidKey.DIGIT_2));
             driver.pressKey(new KeyEvent(AndroidKey.DIGIT_3));
@@ -103,7 +102,7 @@ public class CarbonTest extends Base {
     driver.manage().timeouts().implicitlyWait(60, TimeUnit.SECONDS);
     wait.until(ExpectedConditions.visibilityOf(homePage.airtimePhoneNo));
     homePage.airtimePhoneNo.click();
-    homePage.airtimePhoneNo.sendKeys("08093843293");
+    homePage.airtimePhoneNo.sendKeys("089 9000 1100");
 
     wait.until(ExpectedConditions.visibilityOf(homePage.airtimeAmt));
 
@@ -127,6 +126,20 @@ public class CarbonTest extends Base {
 
     wait.until(ExpectedConditions.visibilityOf(homePage.securePayBtn));
     homePage.securePayBtn.click();
+
+    driver.manage().timeouts().implicitlyWait(60, TimeUnit.SECONDS);
+    wait.until(ExpectedConditions.visibilityOf(homePage.airtimePin));
+    homePage.airtimePin.click();
+
+    if (driver.isKeyboardShown())
+    {
+
+        driver.pressKey(new KeyEvent(AndroidKey.DIGIT_1));
+        driver.pressKey(new KeyEvent(AndroidKey.DIGIT_2));
+        driver.pressKey(new KeyEvent(AndroidKey.DIGIT_3));
+        driver.pressKey(new KeyEvent(AndroidKey.DIGIT_4));
+
+    }
 
     }
 }
