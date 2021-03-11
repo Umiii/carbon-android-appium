@@ -98,8 +98,10 @@ public class CarbonTest extends Base {
     // Tap buy airtimeIcon
     homePage.buyAirtimeIcon.click();
 
-    wait.until(ExpectedConditions.visibilityOf(homePage.airtimePhoneNo));
 
+
+    driver.manage().timeouts().implicitlyWait(60, TimeUnit.SECONDS);
+    wait.until(ExpectedConditions.visibilityOf(homePage.airtimePhoneNo));
     homePage.airtimePhoneNo.click();
     homePage.airtimePhoneNo.sendKeys("08093843293");
 
@@ -108,11 +110,23 @@ public class CarbonTest extends Base {
     homePage.airtimeAmt.click();
     homePage.airtimeAmt.sendKeys("500");
 
+    driver.hideKeyboard();
+
     wait.until(ExpectedConditions.visibilityOf(homePage.network));
     homePage.network.click();
 
-    //wait.until(ExpectedConditions.visibilityOf(homePage.nextBtn));
-    //homePage.nextBtn.click();
+
+    wait.until(ExpectedConditions.visibilityOf(homePage.nextBtn));
+    homePage.nextBtn.click();
+
+    wait.until(ExpectedConditions.visibilityOf(homePage.walletRadioBtn));
+    homePage.walletRadioBtn.click();
+
+    wait.until(ExpectedConditions.visibilityOf(homePage.confirmPaymentBtn));
+    homePage.confirmPaymentBtn.click();
+
+    wait.until(ExpectedConditions.visibilityOf(homePage.securePayBtn));
+    homePage.securePayBtn.click();
 
     }
 }

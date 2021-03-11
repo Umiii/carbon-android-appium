@@ -39,4 +39,12 @@ public class HomePage {
     @AndroidFindBy(id = "com.lenddo.mobile.paylater.staging:id/button_next")
     public WebElement nextBtn;
 
+    @AndroidFindBy(id = "com.lenddo.mobile.paylater.staging:id/walletRadioButton")
+    public WebElement walletRadioBtn;
+
+    @AndroidFindBy(id = "com.lenddo.mobile.paylater.staging:id/confirm_payment_button")
+    public WebElement confirmPaymentBtn;
+
+    @AndroidFindBy(id = "com.lenddo.mobile.paylater.staging:id/button_text_secure_pay")
+    public WebElement securePayBtn;
 }
